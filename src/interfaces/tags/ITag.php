@@ -1,8 +1,8 @@
 <?php
 namespace tagnow\interfaces\tags;
 
-use extas\interfaces\IHasId;
 use extas\interfaces\IHasName;
+use extas\interfaces\IHaveUUID;
 use extas\interfaces\IItem;
 use tagnow\interfaces\IHaveToken;
 
@@ -12,7 +12,7 @@ use tagnow\interfaces\IHaveToken;
  * @field.siubject_id(description="Subject ID",type=uuid,edges=[36])
  * @field.name(description="User defined tag",type=string,edges=[1,30])
  */
-interface ITag extends IItem, IHasName, IHaveToken, IHasId
+interface ITag extends IItem, IHasName, IHaveToken, IHaveUUID
 {
     public const SUBJECT = 'tagnow.tag';
 

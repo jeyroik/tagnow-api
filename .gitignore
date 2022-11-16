@@ -15,6 +15,11 @@ Thumbs.db
 # composer vendor dir
 /vendor
 
+# tmp data
+/resources/Repository*
+/resources/system
+/resources/container*
+
 # composer itself is not needed
 composer.phar
 composer.lock

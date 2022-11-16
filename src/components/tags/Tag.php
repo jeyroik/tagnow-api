@@ -2,14 +2,14 @@
 namespace tagnow\components\tags;
 
 use extas\components\Item;
-use extas\components\THasId;
 use extas\components\THasName;
+use extas\components\THasStringId;
 use tagnow\components\THasToken;
 use tagnow\interfaces\tags\ITag;
 
 class Tag extends Item implements ITag
 {
-    use THasId;
+    use THasStringId;
     use THasToken;
     use THasName;
 

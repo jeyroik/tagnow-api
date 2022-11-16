@@ -1,0 +1,72 @@
+{
+    "name": "tagnow\/api",
+    "drivers": [
+        {
+            "class": "\\extas\\components\\repositories\\drivers\\DriverFileJson",
+            "options": {
+                "path": "resources\/",
+                "db": "system"
+            },
+            "tables": [
+                "tags",
+                "subjects",
+                "tokens",
+                "routes",
+                "plugins",
+                "extensions"
+            ]
+        }
+    ],
+    "tables": {
+        "tags": {
+            "namespace": "repositories",
+            "item_class": "\\tagnow\\components\\tags\\Tag",
+            "pk": "id",
+            "code": {
+                "create-before": "\\extas\\components\\UUID::setId($item);"
+            }
+        },
+        "subjects": {
+            "namespace": "repositories",
+            "item_class": "\\tagnow\\components\\subjects\\Subject",
+            "pk": "id",
+            "code": {
+                "create-before": "\\extas\\components\\UUID::setId($item);"
+            }
+        },
+        "tokens": {
+            "namespace": "repositories",
+            "item_class": "\\tagnow\\components\\tokens\\Token",
+            "pk": "id",
+            "code": {
+                "create-before": "\/mnt\/c\/Users\/aivanov\/var\/www\/own\/jeyroik\/tagnow-api\/resources\/token-before-create.php"
+            }
+        }
+    },
+    "plugins": [
+        {
+            "class": "extas\\components\\plugins\\PluginRoutes",
+            "stage": "extas.api.app.init"
+        },
+        {
+            "class": "extas\\components\\plugins\\PluginInputValidators",
+            "stage": "extas.api.input.description"
+        },
+        {
+            "class": "extas\\components\\plugins\\PluginOutputValidators",
+            "stage": "extas.api.output.description"
+        },
+        {
+            "class": "tagnow\\components\\plugins\\PluginSubjectTags",
+            "stage": "extas.api.view.subjects"
+        },
+        {
+            "class": "tagnow\\components\\plugins\\PluginSubjectsTags",
+            "stage": "extas.api.list.subjects"
+        },
+        {
+            "class": "tagnow\\components\\plugins\\PluginUpdateSubject",
+            "stage": "extas.api.update.subjects"
+        }
+    ]
+}
