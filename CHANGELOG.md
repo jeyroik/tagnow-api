@@ -1,3 +1,7 @@
+# 0.1.2
+
+- Added response examples to the REEDME.
+
 # 0.1.1
 
 - Added docs.
