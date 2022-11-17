@@ -1,5 +1,6 @@
 # tagnow-api
-Tag Now API
+
+Simple service for tagging anything you want.
 
 # install
 
@@ -13,4 +14,43 @@ Tag Now API
 # php -S localhost:8080
 ```
 
-After that you can touch http://localhost:8080/v1/
+After that you can touch http://localhost:8080/help
+
+# using
+
+1. Create token.
+
+```
+POST http://localhost:8080/v1/token
+```
+
+2. Create subject.
+
+```
+POST http://localhost:8080/v1/subject/<created_token>
+BODY
+{
+    "name": "Anything you want"
+}
+```
+
+3. Attach tags to a subject
+
+```
+PUT http://localhost:8080/v1/subject/<created_token>
+BODY
+{
+    "id": <created_subject_id>,
+    "tags": ["some", "tags"]
+}
+```
+
+4. Get subjects by tags
+
+```
+GET http://localhost:8080/v1/subject/<created_token>
+BODY
+{
+    "tags": ["some"]
+}
+```
