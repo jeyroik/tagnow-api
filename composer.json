@@ -1,0 +1,21 @@
+{
+    "name": "tagnow/api",
+    "require": {
+        "jeyroik/extas-foundation": "6.*",
+        "jeyroik/extas-api": "1.*",
+        "jeyroik/extas-config-php": "0.*",
+        "vlucas/phpdotenv": "5.*",
+        "ramsey/uuid": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "tagnow\\": "src/",
+            "tests\\": "tests/",
+            "extas\\components\\repositories\\": "resources/",
+            "repositories\\": "resources/"
+        }
+    },
+    "scripts": {
+      "test": "vendor/bin/phpunit --testdox --coverage-clover=coverage.xml --whitelist=src tests"
+    }
+}
